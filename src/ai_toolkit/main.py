@@ -1,11 +1,19 @@
 import typer
 from .cli import doctor, research, research_extract, tools_list, tools_info
 from . import research_cli
+from .tools.update_site_cli import update_site
 
 app = typer.Typer(help="AI Toolkit - Agentic tools for research and document management")
 
 # Build/Setup commands
 app.command("doctor")(doctor)
+
+# Tool Management commands
+app.command("tools-list")(tools_list)
+app.command("tools-info")(tools_info)
+
+# Website update command
+app.command("update-site") (update_site)
 
 # Basic Research commands
 app.command("research")(research)
